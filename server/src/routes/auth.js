@@ -1,12 +1,8 @@
 import express from "express";
-import usersController from "../controllers/users/controller.js";
 import authController from "../controllers/auth/controller.js";
 import authenticateToken from "../middleware/authentication.js"
 
 const router = express.Router();
-// user registration
-router.post("/register", usersController.registerUser)
-
 // user login
 router.post("/login", authController.loginUser);
 
