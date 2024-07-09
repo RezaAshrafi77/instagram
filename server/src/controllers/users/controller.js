@@ -26,10 +26,20 @@ const updateUser = async (req, res) => {
   }
 };
 
+const getUserInfo = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const user = await User.findById(id);
+    res.status(201).json({ data: user });
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+};
+
 const deleteUser = async (req, res) => {
   try {
     const { id } = req.body;
-    await User.delete({_id: id});
+    await User.delete({ _id: id });
     res.status(201).json({ message: "User removed successfully" });
   } catch (error) {
     console.log(error);
@@ -37,4 +47,10 @@ const deleteUser = async (req, res) => {
   }
 };
 
-export default { getAllUsers, registerUser, updateUser, deleteUser };
+export default {
+  getAllUsers,
+  registerUser,
+  updateUser,
+  deleteUser,
+  getUserInfo,
+};

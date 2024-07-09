@@ -9,8 +9,11 @@ router.get(api_url + "/all", usersController.getAllUsers);
 // user registration
 router.post(api_url + "/register", usersController.registerUser);
 
-// user registration
+// user update
 router.put(api_url + "/update", usersController.updateUser);
+
+// user info
+router.get(api_url + "/info", usersController.getUserInfo);
 
 // user registration
 router.delete(api_url + "/delete", usersController.deleteUser);
