@@ -1,8 +1,29 @@
 import User from "../../models/user/schema.js";
 
 const getAllUsers = async (req, res, next) => {
-  const users = await User.find({});
-  console.log(users);
+  const match = {};
+  const sort = {};
+  if (req.query.completed) {
+    match.completed = req.query.completed === "true";
+  }
+  if (req.query.sortBy) {
+    const parts = req.query.sortBy.split(":");
+    sort[parts[0]] = parts[1] === "desc" ? -1 : 1;
+  }
+  try {
+    let data = await User.find({}).populate({
+      path: "user",
+      match,
+      options: {
+        limit: parseInt(req.query.limit),
+        skip: parseInt(req.query.skip),
+        sort,
+      },
+    });
+    res.status(201).json({ data: [...data], success: true });
+  } catch (error) {
+    res.status(500).json({ success: false, msg: error.message });
+  }
 };
 
 const registerUser = async (req, res) => {

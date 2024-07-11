@@ -4,7 +4,7 @@ import usersController from "../controllers/users/controller.js";
 const api_url = "/api/user";
 const router = express.Router();
 // get all users
-router.get(api_url + "/all", usersController.getAllUsers);
+router.get(api_url + "/list", usersController.getAllUsers);
 
 // user registration
 router.post(api_url + "/register", usersController.registerUser);
