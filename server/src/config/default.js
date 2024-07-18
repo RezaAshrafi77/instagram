@@ -3,4 +3,5 @@ export const app = {
   db : {
     url : "mongodb://127.0.0.1/instagram",
   }
+  
 };

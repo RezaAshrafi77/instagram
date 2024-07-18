@@ -1,8 +1,7 @@
-import Hashtag from "../../models/hashtag/schema.js";
+import services from "./service.js";
 
-const getAllHashtags = async (req, res, next) => {
-  const hashtags = await Hashtag.find({});
-  console.log(hashtags);
+const getAllHashtags = () => {
+  services.getAllHashtags();
 };
 
 export default { getAllHashtags };

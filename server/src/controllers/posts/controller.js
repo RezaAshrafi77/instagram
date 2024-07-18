@@ -1,8 +1,7 @@
-import Post from "../../models/post/schema.js";
+import services from "./service.js";
 
-const getAllPosts = async (req, res, next) => {
-  const posts = await Post.find({});
-  console.log(posts);
+const getAllPosts = () => {
+  services.getAllPosts();
 };
 
 export default { getAllPosts };

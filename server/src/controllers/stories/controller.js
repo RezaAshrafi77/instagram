@@ -1,8 +1,7 @@
-import Story from "../../models/story/schema.js";
+import services from "./service.js";
 
-const getAllStories = async (req, res, next) => {
-  const stories = await Story.find({});
-  console.log(stories);
+const getAllStories = () => {
+  services.getStories();
 };
 
 export default { getAllStories };
