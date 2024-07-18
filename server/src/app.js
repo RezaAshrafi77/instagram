@@ -1,7 +1,7 @@
 // src/index.js
 import express from "express";
 import dotenv from "dotenv";
-import connectDB from "./config/db.js";
+import connectDB from "./db/connection.js";
 
 // routes
 import usersRoutes from "./routes/users.js";
